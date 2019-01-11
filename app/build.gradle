@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd_HH_mm_ss",  TimeZone.getTimeZone("GMT+8"))
+}
+android {
+    compileSdkVersion 25
+    buildToolsVersion "28.0.0"
+    defaultConfig {
+        applicationId "com.linglongtech.ijkplayer"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def fileName
+                def outDirectory = output.outputFile.parent
+                if (variant.buildType.name.equals('release')) {
+                    fileName = "Captain_Player-v${defaultConfig.versionName}_${releaseTime()}_release.apk"
+                } else {
+                    fileName = "Captain_Player-v${defaultConfig.versionName}_debug.apk"
+                }
+                output.outputFile = new File(outDirectory, fileName)
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+//        dirs 'libs' /**在libs文件夹下找aar文件*/
+        dirs project(':ijk-lib').file('libs')  /**在lib库中找到libs文件夹下找aar文件*/
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+    compile project(path: ':ijk-lib')
+//    compile project(path: ':mediaplay')
+    compile project(path: ':common-utils')
+    compile 'com.android.support:appcompat-v7:25.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

@@ -1,0 +1,2 @@
+include ':app', ':ijk-lib', ':common-utils'
+project(':common-utils').projectDir = new File('../common-utils')

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:drawable="@mipmap/loading_circle"
+    android:pivotX="50%"  
+    android:pivotY="50%"  
+    android:fromDegrees="0" 
+    android:toDegrees="1080"
+    android:repeatCount="infinite"
+    android:repeatMode="reverse"
+    android:duration="50"
+    android:interpolator="@android:anim/accelerate_interpolator"/> 

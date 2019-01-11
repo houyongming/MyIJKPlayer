@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <!-- 屏幕宽高比选项 -->
+    <style name="AspectRatioButton">
+        <item name="android:layout_width">@dimen/px64</item>
+        <item name="android:layout_height">@dimen/px40</item>
+        <item name="android:layout_margin">@dimen/px5</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <!-- RenderView选项 -->
+    <style name="RenderRatioButton">
+        <item name="android:layout_width">@dimen/px190</item>
+        <item name="android:layout_height">@dimen/px40</item>
+        <item name="android:layout_margin">@dimen/px5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+</resources>

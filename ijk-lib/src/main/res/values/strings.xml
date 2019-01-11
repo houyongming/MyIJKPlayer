@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IjkPlayer-lib</string>
+
+    <string name="render_none">Render : None</string>
+    <string name="render_surface_view">Render : SurfaceView</string>
+    <string name="render_texture_view">Render : TextureView</string>
+</resources>
